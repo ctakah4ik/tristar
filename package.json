@@ -42,7 +42,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint"
+      "npm run lint"
     ],
     "*.{json,md}": [
       "prettier --write"
