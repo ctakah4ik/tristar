@@ -1,13 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { api } from '../services/api';
-import { favoriteMoviesReducer } from './models/favorite-movies/reducer';
+import { configureStore } from "@reduxjs/toolkit";
+import { api } from "../services/api";
+import { favoriteMoviesReducer } from "./models/favorite-movies/reducer";
 
 export const store = configureStore({
-    reducer: {
-        favoriteMovies: favoriteMoviesReducer,
-        [api.reducerPath]: api.reducer,
-    },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
+  reducer: {
+    favoriteMovies: favoriteMoviesReducer,
+    [api.reducerPath]: api.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
