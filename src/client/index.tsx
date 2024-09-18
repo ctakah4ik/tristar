@@ -11,7 +11,7 @@ const App: React.FC = () => {
     return (
         <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
             <Layout style={styleLayout}>
-                <div />
+                Заглушка
             </Layout>
         </ConfigProvider>
     );
