@@ -42,7 +42,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "npm run lint"
+      "eslint --fix --max-warnings=0"
     ],
     "*.{json,md}": [
       "prettier --write"
@@ -53,6 +53,13 @@
       "pre-push": "npm run lint",
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional",
+    "rules ": {
+      "scope-empty": [2, "never"],
+      "body-max-line-length ": [2, "always", 200]
     }
   }
 }
