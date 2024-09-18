@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint src",
     "preview": "vite preview",
-    "format": "prettier --ignore-path \"./.gitignore\" --write \"./**/*.{ts,tsx,js,jsx,css,json}\""
+    "format": "prettier --ignore-path \"./.gitignore\" --write \"./**/*.{ts,tsx,js,jsx,css,json}\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
@@ -35,31 +36,34 @@
     "globals": "^15.9.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
+    "simple-git-hooks": "^2.11.1",
     "typescript": "5.5.4",
     "typescript-eslint": "^8.6.0",
     "vite": "^5.4.6"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx,json,md}": [
       "prettier --write",
       "eslint --fix --max-warnings=0"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
     ]
   },
-  "husky": {
-    "hooks": {
+  "simple-git-hooks": {
       "pre-push": "npm run lint",
-      "pre-commit": "lint-staged",
+      "pre-commit": "npx lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional",
     "rules ": {
-      "scope-empty": [2, "never"],
-      "body-max-line-length ": [2, "always", 200]
+      "scope-empty": [
+        2,
+        "never"
+      ],
+      "body-max-line-length ": [
+        2,
+        "always",
+        200
+      ]
     }
   }
 }
