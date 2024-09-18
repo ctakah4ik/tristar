@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout } from "antd";
+import { Layout, Divider } from "antd";
 
 const style = {
   padding: "0 48px",
@@ -8,7 +8,7 @@ const style = {
 export const PageFooter: React.FC = () => {
   return (
     <Layout.Footer style={style}>
-      Ant Design ©{new Date().getFullYear()}
+      <Divider>Ant Design ©{new Date().getFullYear()}</Divider>
     </Layout.Footer>
   );
 };
